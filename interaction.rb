@@ -39,11 +39,6 @@ class Interaction
   end
 
   def save!
-    if valid?
-      execute
-      return true
-    else
-      raise ActiveRecord::RecordInvalid.new(self)
-    end
+    save or raise ActiveRecord::RecordInvalid.new(self)
   end
 end
